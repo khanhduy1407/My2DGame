@@ -11,7 +11,7 @@ public class TileManager {
     GamePanel gp;
     Tile[] tile;
 
-    public TileManager(GamePanel gp, Tile[] tile) {
+    public TileManager(GamePanel gp) {
         this.gp = gp;
 
         tile = new Tile[10];
@@ -32,5 +32,11 @@ public class TileManager {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void draw(Graphics2D g2) {
+        g2.drawImage(tile[0].image, 0, 0, gp.tileSize, gp.tileSize, null);
+        g2.drawImage(tile[1].image, 48, 0, gp.tileSize, gp.tileSize, null);
+        g2.drawImage(tile[2].image, 96, 0, gp.tileSize, gp.tileSize, null);
     }
 }

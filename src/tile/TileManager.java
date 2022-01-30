@@ -31,11 +31,6 @@ public class TileManager {
             tile[0] = new Tile();
             tile[0].image = ImageIO.read(getClass().getResourceAsStream("/tiles/grass.png"));
 
-            BufferedImage scaledImage = new BufferedImage(gp.tileSize, gp.tileSize, tile[0].image.getType());
-            Graphics2D g2 = scaledImage.createGraphics();
-            g2.drawImage(tile[0].image, 0, 0, gp.tileSize, gp.tileSize, null);
-            tile[0].image = scaledImage;
-
             tile[1] = new Tile();
             tile[1].image = ImageIO.read(getClass().getResourceAsStream("/tiles/wall.png"));
             tile[1].collision = true;

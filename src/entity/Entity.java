@@ -25,6 +25,9 @@ public class Entity {
         this.gp = gp;
     }
 
+    public void setAction() {}
+    public void update() {}
+
     public BufferedImage setup(String imagePath) {
         UtilityTool uTool = new UtilityTool();
         BufferedImage image = null;

@@ -20,6 +20,7 @@ public class Entity {
     public Rectangle solidArea = new Rectangle(0, 0, 48, 48);
     public int solidAreaDefaultX, solidAreaDefaultY;
     public boolean collisionOn = false;
+    public int actionLockCounter = 0;
 
     public Entity(GamePanel gp) {
         this.gp = gp;

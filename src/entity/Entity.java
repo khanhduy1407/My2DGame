@@ -25,8 +25,36 @@ public class Entity {
         this.gp = gp;
     }
 
-    public void setAction() {}
-    public void update() {}
+    public void setAction() {
+        //
+    }
+
+    public void update() {
+        setAction();
+
+        collisionOn = false;
+        gp.cChecker.checkTile(this);
+
+        // IF COLLISION IS FALSE, PLAYER CAN MOVE
+        if (!collisionOn) {
+            switch (direction) {
+                case "up": worldY -= speed; break;
+                case "down": worldY += speed; break;
+                case "left": worldX -= speed; break;
+                case "right": worldX += speed; break;
+            }
+        }
+
+        spriteCounter++;
+        if (spriteCounter > 12) {
+            if (spriteNum == 1) {
+                spriteNum = 2;
+            } else if (spriteNum == 2) {
+                spriteNum = 1;
+            }
+            spriteCounter = 0;
+        }
+    }
 
     public BufferedImage setup(String imagePath) {
         UtilityTool uTool = new UtilityTool();

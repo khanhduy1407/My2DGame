@@ -9,6 +9,7 @@ import java.text.DecimalFormat;
 public class UI {
 
     GamePanel gp;
+    Graphics2D g2;
     Font arial_40, arial_80B;
     public boolean messageOn = false;
     public String message = "";
@@ -31,6 +32,20 @@ public class UI {
     }
 
     public void draw(Graphics2D g2) {
+        this.g2 = g2;
+
+        g2.setFont(arial_40);
+        g2.setColor(Color.white);
+
+        if (gp.gameState == gp.playState) {
+            // Do playState stuff later
+        }
+        if (gp.gameState == gp.pauseState) {
+            drawPauseScreen();
+        }
+    }
+
+    public void drawPauseScreen() {
         //
     }
 }

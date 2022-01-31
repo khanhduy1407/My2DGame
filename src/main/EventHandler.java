@@ -5,24 +5,28 @@ import java.awt.*;
 public class EventHandler {
 
     GamePanel gp;
-    Rectangle eventRect;
-    int eventRectDefaultX, eventRectDefaultY;
+    EventRect eventRect[][];
 
     public EventHandler(GamePanel gp) {
         this.gp = gp;
 
-        eventRect = new Rectangle();
-        eventRect.x = 23;
-        eventRect.y = 23;
-        eventRect.width = 2;
-        eventRect.height = 2;
-        eventRectDefaultX = eventRect.x;
-        eventRectDefaultY = eventRect.y;
+        eventRect = new EventRect[gp.maxWorldCol][gp.maxWorldRow];
+
+        int col = 0;
+        int row = 0;
+        while (col < gp.maxWorldCol && row < gp.maxWorldRow) {
+            eventRect[col][row] = new EventRect();
+            eventRect[col][row].x = 23;
+            eventRect[col][row].y = 23;
+            eventRect[col][row].width = 2;
+            eventRect[col][row].height = 2;
+            eventRect[col][row].eventRectDefaultX = eventRect[col][row].x;
+            eventRect[col][row].eventRectDefaultY = eventRect[col][row].y;
+        }
     }
 
     public void checkEvent() {
-//        if (hit(27, 16, "right")) {damagePit(gp.dialogueState);}
-        if (hit(27, 16, "right")) {teleport(gp.dialogueState);}
+        if (hit(27, 16, "right")) {damagePit(gp.dialogueState);}
         if (hit(23, 12, "up")) {healingPool(gp.dialogueState);}
     }
 

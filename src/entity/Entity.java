@@ -107,6 +107,14 @@ public class Entity {
             }
             spriteCounter = 0;
         }
+
+        if (invincible) {
+            invincibleCounter++;
+            if (invincibleCounter > 40) {
+                invincible = false;
+                invincibleCounter = 0;
+            }
+        }
     }
 
     public BufferedImage setup(String imagePath, int width, int height) {
@@ -135,40 +143,30 @@ public class Entity {
         {
             switch (direction) {
                 case "up":
-                    if (spriteNum == 1) {
-                        image = up1;
-                    }
-                    if (spriteNum == 2) {
-                        image = up2;
-                    }
+                    if (spriteNum == 1) {image = up1;}
+                    if (spriteNum == 2) {image = up2;}
                     break;
                 case "down":
-                    if (spriteNum == 1) {
-                        image = down1;
-                    }
-                    if (spriteNum == 2) {
-                        image = down2;
-                    }
+                    if (spriteNum == 1) {image = down1;}
+                    if (spriteNum == 2) {image = down2;}
                     break;
                 case "left":
-                    if (spriteNum == 1) {
-                        image = left1;
-                    }
-                    if (spriteNum == 2) {
-                        image = left2;
-                    }
+                    if (spriteNum == 1) {image = left1;}
+                    if (spriteNum == 2) {image = left2;}
                     break;
                 case "right":
-                    if (spriteNum == 1) {
-                        image = right1;
-                    }
-                    if (spriteNum == 2) {
-                        image = right2;
-                    }
+                    if (spriteNum == 1) {image = right1;}
+                    if (spriteNum == 2) {image = right2;}
                     break;
             }
 
+            if (invincible) {
+                g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.4f));
+            }
+
             g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+
+            g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
         }
     }
 }

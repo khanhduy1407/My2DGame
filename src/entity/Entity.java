@@ -26,6 +26,7 @@ public class Entity {
     int dialogueIndex = 0;
     public boolean collisionOn = false;
     public boolean invincible = false;
+    boolean attacking = false;
 
     // COUNTER
     public int spriteCounter = 0;

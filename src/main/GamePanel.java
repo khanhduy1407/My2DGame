@@ -3,7 +3,6 @@ package main;
 import entity.Entity;
 import entity.NPC_OldMan;
 import entity.Player;
-import object.SuperObject;
 import tile.TileManager;
 
 import javax.swing.*;
@@ -40,7 +39,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     // ENTITY AND OBJECT
     public Player player = new Player(this, keyH);
-    public SuperObject obj[] = new SuperObject[10];
+    public Entity obj[] = new Entity[10];
     public Entity npc[] = new Entity[10];
 
     // GAME STATE
@@ -133,6 +132,8 @@ public class GamePanel extends JPanel implements Runnable {
         }
         // OTHERS
         else {
+            int playerY = player.worldY;
+
             // TILE
             tileM.draw(g2);
 
@@ -146,12 +147,16 @@ public class GamePanel extends JPanel implements Runnable {
             // NPC
             for (int i = 0; i < npc.length; i++) {
                 if (npc[i] != null) {
-                    npc[i].draw(g2);
+                    int npcY = npc[i].worldY; // get npc's worldY
+                    if (playerY < npcY) { // if player is above npc, draw npc later
+                        player.draw(g2);
+                        npc[i].draw(g2);
+                    } else {
+                        npc[i].draw(g2);
+                        player.draw(g2);
+                    }
                 }
             }
-
-            // PLAYER
-            player.draw(g2);
 
             // UI
             ui.draw(g2);

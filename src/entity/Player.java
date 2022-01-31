@@ -120,6 +120,15 @@ public class Player extends Entity {
                 standCounter = 0;
             }
         }
+
+        // This need to be outside of key if statement!
+        if (invincible) {
+            invincibleCounter++;
+            if (invincibleCounter > 60) {
+                invincible = false;
+                invincibleCounter = 0;
+            }
+        }
     }
 
     public void pickUpObject(int i) {
@@ -139,7 +148,10 @@ public class Player extends Entity {
 
     private void contactMonster(int i) {
         if (i != 999) {
-            life -= 1;
+            if (!invincible) {
+                life -= 1;
+                invincible = true;
+            }
         }
     }
 

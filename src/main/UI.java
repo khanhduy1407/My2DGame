@@ -66,7 +66,7 @@ public class UI {
     }
 
     public void drawTitleScreen() {
-        g2.setColor(new Color(70, 120, 80));
+        g2.setColor(new Color(0, 0, 0));
         g2.fillRect(0, 0, gp.screenWidth, gp.screenHeight);
 
         // TITLE NAME
@@ -75,6 +75,10 @@ public class UI {
         int x = getXforCenteredText(text);
         int y = gp.tileSize * 3;
 
+        // SHADOW
+        g2.setColor(Color.gray);
+        g2.drawString(text, x + 5, y + 5);
+        // MAIN COLOR
         g2.setColor(Color.white);
         g2.drawString(text, x, y);
     }

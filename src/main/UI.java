@@ -42,11 +42,15 @@ public class UI {
     public void draw(Graphics2D g2) {
         this.g2 = g2;
 
-//        g2.setFont(maruMonica);
-        g2.setFont(purisaB);
+        g2.setFont(maruMonica);
+//        g2.setFont(purisaB);
         g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
         g2.setColor(Color.white);
 
+        // TITLE STATE
+        if (gp.gameState == gp.titleState) {
+            drawTitleScreen();
+        }
         // PLAY STATE
         if (gp.gameState == gp.playState) {
             // Do playState stuff later
@@ -59,6 +63,17 @@ public class UI {
         if (gp.gameState == gp.dialogueState) {
             drawDialogueScreen();
         }
+    }
+
+    public void drawTitleScreen() {
+        // TITLE NAME
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 96F));
+        String text = "Blue Boy Adventure";
+        int x = getXforCenteredText(text);
+        int y = gp.tileSize * 3;
+
+        g2.setColor(Color.white);
+        g2.drawString(text, x, y);
     }
 
     public void drawPauseScreen() {

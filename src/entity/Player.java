@@ -196,5 +196,10 @@ public class Player extends Entity {
         g2.drawImage(image, screenX, screenY, null);
 //        g2.setColor(Color.red);
 //        g2.drawRect(screenX + solidArea.x, screenY + solidArea.y, solidArea.width, solidArea.height);
+
+        // DEBUG
+        g2.setFont(new Font("Arial", Font.PLAIN, 26));
+        g2.setColor(Color.white);
+        g2.drawString("Invincible: " + invincibleCounter, 10, 400);
     }
 }

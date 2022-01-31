@@ -110,10 +110,17 @@ public class GamePanel extends JPanel implements Runnable {
             // PLAYER
             player.update();
 
-            // NPD
+            // NPC
             for (int i = 0; i < npc.length; i++) {
                 if (npc[i] != null) {
                     npc[i].update();
+                }
+            }
+
+            // MONSTER
+            for (int i = 0; i < monster.length; i++) {
+                if (monster[i] != null) {
+                    monster[i].update();
                 }
             }
         }
@@ -153,6 +160,12 @@ public class GamePanel extends JPanel implements Runnable {
             for (int i = 0; i < obj.length; i++) {
                 if (obj[i] != null) {
                     entityList.add(obj[i]);
+                }
+            }
+
+            for (int i = 0; i < monster.length; i++) {
+                if (monster[i] != null) {
+                    entityList.add(monster[i]);
                 }
             }
 

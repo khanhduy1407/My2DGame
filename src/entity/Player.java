@@ -37,10 +37,10 @@ public class Player extends Entity {
     }
 
     public void setDefaultValues() {
-//        worldX = gp.tileSize * 23;
-//        worldY = gp.tileSize * 21;
-        worldX = gp.tileSize * 10;
-        worldY = gp.tileSize * 13;
+        worldX = gp.tileSize * 23;
+        worldY = gp.tileSize * 21;
+//        worldX = gp.tileSize * 10;
+//        worldY = gp.tileSize * 13;
         speed = 4;
         direction = "down";
 
@@ -86,6 +86,7 @@ public class Player extends Entity {
 
             // CHECK Monster COLLISION
             int monsterIndex = gp.cChecker.checkEntity(this, gp.monster);
+            contactMonster(monsterIndex);
 
             // CHECK EVENT
             gp.eHandler.checkEvent();
@@ -133,6 +134,12 @@ public class Player extends Entity {
                 gp.gameState = gp.dialogueState;
                 gp.npc[i].speak();
             }
+        }
+    }
+
+    private void contactMonster(int i) {
+        if (i != 999) {
+            life -= 1;
         }
     }
 

@@ -56,6 +56,10 @@ public class Entity {
     public Entity currentWeapon;
     public Entity currentShield;
 
+    // ITEM ATTRIBUTES
+    public int attackValue;
+    public int defenseValue;
+
     public Entity(GamePanel gp) {
         this.gp = gp;
     }

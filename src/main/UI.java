@@ -197,6 +197,38 @@ public class UI {
         final int frameWidth = gp.tileSize * 5;
         final int frameHeight = gp.tileSize * 10;
         drawSubWindow(frameX, frameY, frameWidth, frameHeight);
+
+        // TEXT
+        g2.setColor(Color.white);
+        g2.setFont(g2.getFont().deriveFont(32F));
+
+        int textX = frameX + 20;
+        int textY = frameY + gp.tileSize;
+        final int lineHeight = 35;
+
+        // NAMES
+        g2.drawString("Level", textX, textY);
+        textY += lineHeight;
+        g2.drawString("Life", textX, textY);
+        textY += lineHeight;
+        g2.drawString("Strength", textX, textY);
+        textY += lineHeight;
+        g2.drawString("Dexterity", textX, textY);
+        textY += lineHeight;
+        g2.drawString("Attack", textX, textY);
+        textY += lineHeight;
+        g2.drawString("Defense", textX, textY);
+        textY += lineHeight;
+        g2.drawString("Exp", textX, textY);
+        textY += lineHeight;
+        g2.drawString("Next level", textX, textY);
+        textY += lineHeight;
+        g2.drawString("Coin", textX, textY);
+        textY += lineHeight;
+        g2.drawString("Weapon", textX, textY);
+        textY += lineHeight;
+        g2.drawString("Shield", textX, textY);
+        textY += lineHeight;
     }
 
     public void drawSubWindow(int x, int y, int width, int height) {

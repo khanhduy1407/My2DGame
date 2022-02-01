@@ -82,6 +82,7 @@ public class UI {
         // CHARACTER STATE
         if (gp.gameState == gp.characterState) {
             drawCharacterScreen();
+            drawInventory();
         }
     }
 
@@ -216,7 +217,7 @@ public class UI {
         }
     }
 
-    private void drawCharacterScreen() {
+    public void drawCharacterScreen() {
         // CREATE A FRAME
         final int frameX = gp.tileSize * 2;
         final int frameY = gp.tileSize;
@@ -310,6 +311,14 @@ public class UI {
         g2.drawImage(gp.player.currentWeapon.down1, tailX - gp.tileSize, textY - 14, null);
         textY += gp.tileSize;
         g2.drawImage(gp.player.currentShield.down1, tailX - gp.tileSize, textY - 14, null);
+    }
+
+    public void drawInventory() {
+        int frameX = gp.tileSize * 9;
+        int frameY = gp.tileSize;
+        int frameWidth = gp.tileSize * 6;
+        int frameHeight = gp.tileSize * 5;
+        drawSubWindow(frameX, frameY, frameWidth, frameHeight);
     }
 
     public void drawSubWindow(int x, int y, int width, int height) {

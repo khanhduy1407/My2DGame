@@ -328,21 +328,22 @@ public class UI {
         final int slotYstart = frameY + 20;
         int slotX = slotXstart;
         int slotY = slotYstart;
+        int slotSize = gp.tileSize + 3;
 
         // DRAW PLAYER'S ITEMS
         for (int i = 0; i < gp.player.inventory.size(); i++) {
             g2.drawImage(gp.player.inventory.get(i).down1, slotX, slotY, null);
-            slotX += gp.tileSize;
+            slotX += slotSize;
 
             if (i == 4 || i == 9 || i == 14) {
                 slotX = slotXstart;
-                slotY += gp.tileSize;
+                slotY += slotSize;
             }
         }
 
         // CURSOR
-        int cursorX = slotXstart + (gp.tileSize * slotCol);
-        int cursorY = slotYstart + (gp.tileSize * slotRow);
+        int cursorX = slotXstart + (slotSize * slotCol);
+        int cursorY = slotYstart + (slotSize * slotRow);
         int cursorWidth = gp.tileSize;
         int cursorHeight = gp.tileSize;
         // DRAW CURSOR

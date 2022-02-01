@@ -297,7 +297,7 @@ public class Player extends Entity {
         }
     }
 
-    private void checkLevelUp() {
+    public void checkLevelUp() {
         if (exp >= nextLevelExp) {
             level++;
             nextLevelExp = nextLevelExp * 2;
@@ -310,6 +310,26 @@ public class Player extends Entity {
             gp.playSE(8);
             gp.gameState = gp.dialogueState;
             gp.ui.currentDialogue = "You are level " + level + " now!\nYou feel stronger!";
+        }
+    }
+
+    public void selectItem() {
+        int itemIndex = gp.ui.getItemIndexOnSlot();
+
+        if (itemIndex < inventory.size()) {
+            Entity selectedItem = inventory.get(itemIndex);
+
+            if (selectedItem.type == type_sword || selectedItem.type == type_axe) {
+                currentWeapon = selectedItem;
+                attack = getAttack();
+            }
+            if (selectedItem.type == type_shield) {
+                currentShield = selectedItem;
+                defense = getDefense();
+            }
+            if (selectedItem.type == type_consumable) {
+                // later
+            }
         }
     }
 

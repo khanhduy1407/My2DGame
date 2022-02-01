@@ -15,6 +15,7 @@ public class Player extends Entity {
     public final int screenX;
     public final int screenY;
     int standCounter = 0;
+    public boolean attackCanceled = false;
 
     public Player(GamePanel gp, KeyHandler keyH) {
         super(gp);
@@ -118,6 +119,13 @@ public class Player extends Entity {
                 }
             }
 
+            if (keyH.enterPress && !attackCanceled) {
+                gp.playSE(7);
+                attacking = true;
+                spriteCounter = 0;
+            }
+
+            attackCanceled = false;
             gp.keyH.enterPress = false;
 
             spriteCounter++;
@@ -201,11 +209,9 @@ public class Player extends Entity {
     public void interactNPC(int i) {
         if (gp.keyH.enterPress) {
             if (i != 999) {
+                attackCanceled = true;
                 gp.gameState = gp.dialogueState;
                 gp.npc[i].speak();
-            } else {
-                gp.playSE(7);
-                attacking = true;
             }
         }
     }

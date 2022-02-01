@@ -2,6 +2,7 @@ package main;
 
 import entity.NPC_OldMan;
 import monster.MON_GreenSlime;
+import object.OBJ_Axe;
 import object.OBJ_Key;
 
 public class AssetSetter {
@@ -24,6 +25,10 @@ public class AssetSetter {
         i++;
         gp.obj[i] = new OBJ_Key(gp);
         gp.obj[i].worldX = gp.tileSize * 26;
+        gp.obj[i].worldY = gp.tileSize * 21;
+        i++;
+        gp.obj[i] = new OBJ_Axe(gp);
+        gp.obj[i].worldX = gp.tileSize * 33;
         gp.obj[i].worldY = gp.tileSize * 21;
     }
 

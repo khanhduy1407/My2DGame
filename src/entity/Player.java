@@ -334,6 +334,7 @@ public class Player extends Entity {
             if (selectedItem.type == type_sword || selectedItem.type == type_axe) {
                 currentWeapon = selectedItem;
                 attack = getAttack();
+                getPlayerAttackImage();
             }
             if (selectedItem.type == type_shield) {
                 currentShield = selectedItem;

@@ -77,6 +77,10 @@ public class UI {
             drawPlayerLife();
             drawDialogueScreen();
         }
+        // CHARACTER STATE
+        if (gp.gameState == gp.characterState) {
+            drawCharacterScreen();
+        }
     }
 
     public void drawPlayerLife() {
@@ -184,6 +188,10 @@ public class UI {
             g2.drawString(line, x, y);
             y += 40;
         }
+    }
+
+    private void drawCharacterScreen() {
+        //
     }
 
     public void drawSubWindow(int x, int y, int width, int height) {

@@ -350,6 +350,13 @@ public class UI {
         g2.setColor(Color.white);
         g2.setStroke(new BasicStroke(3));
         g2.drawRoundRect(cursorX, cursorY, cursorWidth, cursorHeight, 10, 10);
+
+        // DESCRIPTION FRAME
+        int dFrameX = frameX;
+        int dFrameY = frameY + frameHeight;
+        int dFrameWidth = frameWidth;
+        int dFrameHeight = gp.tileSize * 3;
+        drawSubWindow(dFrameX, dFrameY, dFrameWidth, dFrameHeight);
     }
 
     public void drawSubWindow(int x, int y, int width, int height) {
